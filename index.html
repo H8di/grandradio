@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070707">
+  <meta name="description" content="گرندرادیو؛ خانه‌ی صدا، روایت، شعر و موسیقی.">
+  <title>گرندرادیو | GrandRadio</title>
+  <link rel="icon" href="assets/grandradio-logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header">
+    <a class="brand" href="#top">
+      <img src="assets/grandradio-logo.png" alt="لوگوی گرندرادیو">
+      <span>GRANDRADIO</span>
+    </a>
+    <button class="menu-btn" aria-label="منو" aria-expanded="false"><i></i><i></i><i></i></button>
+    <nav class="nav">
+      <a href="#latest">آخرین روایت</a>
+      <a href="#archive">آرشیو</a>
+      <a href="#about">درباره</a>
+      <a href="#listen">شنیدن</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">خانه‌ی صدا</p>
+        <h1>بعضی صداها<br>برای شنیده‌شدن نیستند؛<br><em>برای ماندن‌اند.</em></h1>
+        <p class="lead">گرندرادیو؛ روایت‌هایی کوتاه از شعر، خاطره، موسیقی و لحظه‌هایی که ساده از کنارشان نمی‌گذریم.</p>
+        <div class="actions">
+          <a class="btn gold" href="#latest">▶&nbsp;&nbsp; شنیدن آخرین روایت</a>
+          <a class="btn" href="#archive">ورود به آرشیو</a>
+        </div>
+      </div>
+      <div class="hero-logo">
+        <div class="halo"></div>
+        <img src="assets/grandradio-logo.png" alt="">
+      </div>
+    </section>
+
+    <section id="latest" class="section">
+      <div class="title-row">
+        <div><p class="kicker">آخرین انتشار</p><h2>یک روایت، یک مکث</h2></div>
+        <span>01</span>
+      </div>
+
+      <article class="feature">
+        <div class="disc" id="audioVisual">
+          <div class="visual-sweep" aria-hidden="true"></div>
+          <div class="ring r1"></div>
+          <div class="ring r2"></div>
+          <div class="ring r3"></div>
+          <img src="assets/grandradio-logo.png" alt="گرندرادیو">
+        </div>
+        <div class="feature-copy">
+          <p id="latestCategory" class="kicker">شبانه</p>
+          <h3 id="latestTitle">در حال دریافت آخرین اثر...</h3>
+          <p id="latestDescription" class="quote">آرشیو از شنوتو دریافت می‌شود.</p>
+          <div class="player">
+            <button id="demoPlay" aria-label="پخش آخرین اثر">▶</button>
+            <div class="track"><div id="progress"></div></div>
+            <span id="time">00:00</span>
+          </div>
+          <small id="latestMeta">منبع صوت: شنوتو</small>
+          <audio id="latestAudio" preload="metadata"></audio>
+        </div>
+      </article>
+    </section>
+
+    <section id="archive" class="section">
+      <div class="title-row">
+        <div><p class="kicker">آرشیو گرندرادیو</p><h2>روایت‌ها</h2></div>
+        <span>02</span>
+      </div>
+
+      <div id="feedFilters" class="feed-filters" aria-label="دسته‌بندی آثار"></div>
+      <p id="feedStatus" class="feed-status">در حال دریافت آرشیو...</p>
+      <div id="feedArchive" class="cards feed-cards"></div>
+
+      <div class="archive-more">
+        <p id="archiveCount" class="archive-count"></p>
+        <button id="loadMoreBtn" class="archive-more-btn" type="button" hidden>
+          نمایش آثار بیشتر
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="about-logo"><img src="assets/grandradio-logo.png" alt="لوگوی گرندرادیو"></div>
+      <div>
+        <p class="kicker">درباره گرندرادیو</p>
+        <h2>نه یک ایستگاه رادیویی؛<br>یک جهان شنیداری.</h2>
+        <p class="muted">گرندرادیو فضایی مستقل برای روایت، شعر، صدا و موسیقی است؛ جایی که هر اثر می‌تواند چند دقیقه جهان بیرون را خاموش کند و مخاطب را به یک تصویر، یک خاطره یا یک حس برگرداند.</p>
+      </div>
+    </section>
+
+    <section id="listen" class="section listen">
+      <p class="kicker">همراه ما باشید</p>
+      <h2>گرندرادیو را هرجا که هستید بشنوید.</h2>
+      <div class="platforms">
+        <a href="https://shenoto.com/channel/podcast/GrandRadio" target="_blank" rel="noopener">شنوتو</a>
+        <a href="#" title="لینک تلگرام را بعداً جایگزین کنید">تلگرام</a>
+        <a href="#" title="لینک اینستاگرام را بعداً جایگزین کنید">اینستاگرام</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-brand"><img src="assets/grandradio-logo.png" alt=""><span>GRANDRADIO</span></div>
+    <p>© <span id="year"></span> GrandRadio</p>
+  </footer>
+
+  <script src="feeds.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

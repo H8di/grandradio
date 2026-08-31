@@ -1,0 +1,9 @@
+{
+  "feeds": [
+    {
+      "id": "shabaneh",
+      "label": "شبانه‌ها",
+      "url": "https://shenoto.net/service/api/feed/GrandRadio"
+    }
+  ]
+}
