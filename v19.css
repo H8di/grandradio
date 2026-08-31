@@ -1,0 +1,80 @@
+
+/* GrandRadio v19 — keep the v18 editorial headers, restore the proven v16 player */
+
+:root{
+  --v19-gold:#d3a42f;
+  --v19-cream:#eee6d7;
+}
+
+/* Remove 01/02 and keep the cleaner editorial section headers */
+.editorial-title{
+  min-height:142px;
+  align-items:flex-end;
+  padding-bottom:25px;
+  margin-bottom:54px;
+  position:relative;
+}
+.editorial-title::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 15px rgba(212,163,57,.3);
+}
+.section-signature{
+  direction:ltr;
+  margin:0 0 5px;
+  color:#a67f2c;
+  font-family:"Vazirmatn",Tahoma,Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+.editorial-title h2{color:var(--v19-cream)}
+.archive-title{margin-bottom:35px}
+.archive-title .section-signature{color:#c49531}
+
+/* Archive polishing from v18/v16 only — no player layout overrides */
+.card.feed-card{
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+  border-color:rgba(255,255,255,.08);
+  background:radial-gradient(circle at 80% 12%,rgba(212,163,57,.025),transparent 28%),#0b0b0b;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+.card.feed-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(212,163,57,.25);
+  background:#0e0e0e;
+}
+.card.feed-card > span{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-height:calc(3 * 1.8em);
+  max-height:calc(3 * 1.8em);
+}
+
+@media(max-width:760px){
+  .editorial-title{
+    min-height:auto;
+    align-items:flex-start;
+    gap:18px;
+  }
+  .section-signature{
+    white-space:normal;
+    text-align:left;
+    font-size:10px;
+  }
+  .card.feed-card{
+    aspect-ratio:auto;
+    height:360px;
+  }
+}
