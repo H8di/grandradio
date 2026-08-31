@@ -346,3 +346,111 @@ footer{max-width:var(--max);margin:auto;padding:38px 32px 60px;display:flex;alig
     height:360px;
   }
 }
+
+
+/* =========================================================
+   GRANDRADIO ARCHIVE CARDS — compact final layout v2
+   ========================================================= */
+
+#archive .section-head{
+  margin-top:0 !important;
+  margin-bottom:22px !important;
+  padding-top:0 !important;
+}
+
+#archive .filters{
+  margin-top:12px !important;
+  margin-bottom:24px !important;
+}
+
+/* Override the previous square-card patch */
+#archive .card.feed-card{
+  aspect-ratio:auto !important;
+  height:390px !important;
+  min-height:390px !important;
+  max-height:390px !important;
+  padding:28px 32px 0 !important;
+  display:flex !important;
+  flex-direction:column !important;
+  overflow:hidden !important;
+  box-sizing:border-box !important;
+}
+
+#archive .card.feed-card .card-category{
+  margin:0 0 20px !important;
+  flex:0 0 auto !important;
+}
+
+#archive .card.feed-card hr{
+  margin:0 0 22px !important;
+  flex:0 0 auto !important;
+}
+
+#archive .card.feed-card h3{
+  margin:0 0 10px !important;
+  min-height:0 !important;
+  max-height:3.1em !important;
+  line-height:1.55 !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:2 !important;
+  line-clamp:2 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  flex:0 0 auto !important;
+}
+
+#archive .card.feed-card > span{
+  margin:0 !important;
+  min-height:0 !important;
+  max-height:5.4em !important;
+  line-height:1.8 !important;
+  display:-webkit-box !important;
+  -webkit-box-orient:vertical !important;
+  -webkit-line-clamp:3 !important;
+  line-clamp:3 !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+  flex:0 0 auto !important;
+}
+
+#archive .card.feed-card .episode-meta{
+  margin-top:12px !important;
+  flex:0 0 auto !important;
+}
+
+/* Play action is pinned to the bottom of every card */
+#archive .card.feed-card .episode-play{
+  width:calc(100% + 64px) !important;
+  margin:auto -32px 0 !important;
+  padding:16px 32px 18px !important;
+  min-height:58px !important;
+  box-sizing:border-box !important;
+  border-top:1px solid rgba(212,165,55,.16) !important;
+  display:flex !important;
+  align-items:center !important;
+  flex:0 0 auto !important;
+}
+
+@media(max-width:850px){
+  #archive .section-head{
+    margin-bottom:16px !important;
+  }
+
+  #archive .filters{
+    margin-bottom:18px !important;
+  }
+
+  #archive .card.feed-card{
+    height:360px !important;
+    min-height:360px !important;
+    max-height:360px !important;
+    padding:24px 24px 0 !important;
+  }
+
+  #archive .card.feed-card .episode-play{
+    width:calc(100% + 48px) !important;
+    margin:auto -24px 0 !important;
+    padding:14px 24px 16px !important;
+  }
+}
