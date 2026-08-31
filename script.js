@@ -64,14 +64,22 @@ async function loadGeneratedArchive(){
   const data=await r.json();
   const feeds=data.feeds||[];
 
-  return feeds.flatMap(feed=>
-    (feed.items||[]).map(item=>({
+  const merged=feeds.flatMap(feed=>
+    (feed.items||[]).map((item,sourceIndex)=>({
       ...item,
       feedId:item.feedId||feed.id,
       feedLabel:item.feedLabel||feed.label,
-      enclosure:{link:item.audio||item.enclosure?.link||''}
+      enclosure:{link:item.audio||item.enclosure?.link||''},
+      _sourceIndex:sourceIndex
     }))
-  ).sort((a,b)=>dateValue(b)-dateValue(a));
+  );
+
+  return merged.sort((a,b)=>{
+    if(a.feedId===b.feedId){
+      return a._sourceIndex-b._sourceIndex;
+    }
+    return dateValue(b)-dateValue(a);
+  });
 }
 
 /* ---------- Circular gramophone motion ---------- */
