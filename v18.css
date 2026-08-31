@@ -1,0 +1,296 @@
+
+/* ============================================================
+   GrandRadio v18 — editorial / gramophone redesign
+   This file is intentionally an override on top of style.css.
+   ============================================================ */
+
+:root{
+  --v18-gold:#d3a42f;
+  --v18-gold-soft:#9c7926;
+  --v18-cream:#eee6d7;
+  --v18-border:rgba(225,181,69,.18);
+}
+
+/* Title rows: replace the old 01/02 visual language */
+.editorial-title{
+  min-height:142px;
+  align-items:flex-end;
+  padding-bottom:25px;
+  margin-bottom:54px;
+  position:relative;
+}
+
+.editorial-title::after{
+  content:"";
+  position:absolute;
+  bottom:-1px;
+  left:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 15px rgba(212,163,57,.3);
+}
+
+.section-signature{
+  direction:ltr;
+  margin:0 0 5px;
+  color:#a67f2c;
+  font-family:"Vazirmatn",Tahoma,Arial,sans-serif;
+  font-size:12px;
+  letter-spacing:.06em;
+  white-space:nowrap;
+}
+
+.editorial-title h2{
+  color:var(--v18-cream);
+}
+
+/* Main player: cover + text + gramophone disc */
+.feature-v18{
+  grid-template-columns:minmax(175px,.58fr) minmax(270px,.88fr) minmax(330px,1.2fr);
+  gap:clamp(28px,3.2vw,52px);
+  min-height:500px;
+  padding:clamp(28px,3.5vw,50px);
+  background:
+    radial-gradient(circle at 16% 50%,rgba(190,130,27,.055),transparent 28%),
+    radial-gradient(circle at 74% 48%,rgba(212,163,57,.035),transparent 36%),
+    linear-gradient(135deg,#101010,#080808);
+  border-color:rgba(255,255,255,.11);
+  box-shadow:0 26px 90px rgba(0,0,0,.20);
+}
+
+/* Keep RTL visual order like the mockup:
+   cover on left, text center, disc on right. */
+.feature-v18 .feature-cover{grid-column:3}
+.feature-v18 .feature-copy{grid-column:2}
+.feature-v18 .disc{grid-column:1}
+
+.feature-cover{
+  position:relative;
+  min-height:360px;
+  align-self:center;
+  overflow:hidden;
+  border:1px solid rgba(212,163,57,.34);
+  border-radius:23px;
+  display:grid;
+  place-items:center;
+  background:
+    radial-gradient(circle at 50% 36%,rgba(212,163,57,.20),transparent 28%),
+    linear-gradient(155deg,#17130d 0%,#090909 58%,#11100d 100%);
+  box-shadow:
+    inset 0 0 60px rgba(212,163,57,.045),
+    0 24px 55px rgba(0,0,0,.28);
+}
+
+.feature-cover::before{
+  content:"";
+  position:absolute;
+  width:72%;
+  aspect-ratio:1;
+  border:1px solid rgba(212,163,57,.13);
+  border-radius:50%;
+}
+
+.feature-cover::after{
+  content:"";
+  position:absolute;
+  inset:20px;
+  border:1px solid rgba(255,255,255,.025);
+  border-radius:16px;
+}
+
+.cover-glow{
+  position:absolute;
+  width:55%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:rgba(212,163,57,.10);
+  filter:blur(38px);
+}
+
+.feature-cover img{
+  position:relative;
+  z-index:2;
+  width:67%;
+  filter:
+    drop-shadow(0 12px 30px rgba(0,0,0,.55))
+    drop-shadow(0 0 10px rgba(212,163,57,.10));
+}
+
+.feature-cover small{
+  position:absolute;
+  bottom:23px;
+  z-index:3;
+  direction:ltr;
+  color:#a78330;
+  letter-spacing:.28em;
+  font-family:Georgia,serif;
+  font-size:9px;
+}
+
+/* Central episode typography */
+.feature-v18 .feature-copy{
+  align-self:center;
+}
+
+.feature-v18 .feature-copy h3{
+  color:#eee6d8;
+  font-size:clamp(35px,3.5vw,50px);
+  line-height:1.45;
+  margin:3px 0 13px;
+}
+
+.feature-v18 .quote{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  min-height:calc(3 * 1.9em);
+  max-height:calc(3 * 1.9em);
+  color:#aaa39a;
+}
+
+.feature-v18 .player{
+  margin-top:30px;
+}
+
+.feature-v18 .player button{
+  width:52px;
+  height:52px;
+  border-color:#d6a42e;
+  box-shadow:0 0 0 1px rgba(212,163,57,.05);
+  transition:.22s ease;
+}
+
+.feature-v18 .player button:hover{
+  transform:scale(1.04);
+  background:rgba(212,163,57,.08);
+}
+
+.feature-v18 .track{
+  height:4px;
+  border-radius:999px;
+  background:#252525;
+}
+
+.feature-v18 .track div{
+  background:linear-gradient(90deg,#b9861f,#e2b743);
+}
+
+/* Gramophone disc stays minimal — preserves existing dynamic playback */
+.feature-v18 .disc{
+  width:100%;
+  max-width:410px;
+  justify-self:center;
+  align-self:center;
+}
+
+/* Archive header */
+.archive-title{
+  margin-bottom:35px;
+}
+
+.archive-title .section-signature{
+  color:#c49531;
+}
+
+/* Make archive feel a little more editorial without changing behavior */
+.feed-filters{
+  margin-bottom:30px;
+}
+
+.card.feed-card{
+  border-color:rgba(255,255,255,.08);
+  background:
+    radial-gradient(circle at 80% 12%,rgba(212,163,57,.025),transparent 28%),
+    #0b0b0b;
+  transition:transform .25s ease,border-color .25s ease,background .25s ease;
+}
+
+.card.feed-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(212,163,57,.25);
+  background:#0e0e0e;
+}
+
+/* Existing v16 concept: equal-size cards + caption clamp */
+.card.feed-card{
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+
+.card.feed-card > span{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-height:calc(3 * 1.8em);
+  max-height:calc(3 * 1.8em);
+}
+
+/* Footer / platforms */
+.platforms a{
+  transition:.2s ease;
+}
+
+.platforms a:hover{
+  border-color:rgba(212,163,57,.48);
+  color:var(--gold2);
+}
+
+/* Responsive */
+@media(max-width:1000px){
+  .feature-v18{
+    grid-template-columns:.78fr 1.22fr;
+  }
+
+  .feature-v18 .feature-cover{
+    display:none;
+  }
+
+  .feature-v18 .feature-copy{grid-column:1}
+  .feature-v18 .disc{grid-column:2}
+}
+
+@media(max-width:760px){
+  .editorial-title{
+    min-height:auto;
+    align-items:flex-start;
+    gap:18px;
+  }
+
+  .section-signature{
+    white-space:normal;
+    text-align:left;
+    font-size:10px;
+  }
+
+  .feature-v18{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding:25px 20px 30px;
+  }
+
+  .feature-v18 .feature-copy,
+  .feature-v18 .disc{
+    grid-column:1;
+  }
+
+  .feature-v18 .disc{
+    grid-row:1;
+    max-width:300px;
+  }
+
+  .feature-v18 .feature-copy{
+    grid-row:2;
+  }
+
+  .card.feed-card{
+    aspect-ratio:auto;
+    height:360px;
+  }
+}
