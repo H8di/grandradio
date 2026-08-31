@@ -290,4 +290,3 @@ document.querySelector('.track')?.addEventListener('click',e=>{
     loadMoreBtn.hidden=true;
   }
 })();
-})();
