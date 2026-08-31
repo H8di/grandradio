@@ -241,3 +241,35 @@ footer{max-width:var(--max);margin:auto;padding:38px 32px 60px;display:flex;alig
 .archive-more-btn[hidden]{
   display:none;
 }
+
+
+/* =========================================================
+   v16 — uniform archive cards
+   Keep every archive card the same size and clamp long captions.
+   ========================================================= */
+
+.card.feed-card{
+  min-height:0;
+  height:auto;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+
+.card.feed-card > span{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.8;
+  min-height:calc(3 * 1.8em);
+  max-height:calc(3 * 1.8em);
+}
+
+@media(max-width:850px){
+  .card.feed-card{
+    aspect-ratio:auto;
+    height:360px;
+  }
+}
