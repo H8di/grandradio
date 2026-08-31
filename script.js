@@ -290,3 +290,22 @@ document.querySelector('.track')?.addEventListener('click',e=>{
     loadMoreBtn.hidden=true;
   }
 })();
+})();
+
+// Center "Latest Story" player when navigating to #latest
+document.querySelectorAll('a[href="#latest"]').forEach(link => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const target =
+      document.querySelector('#latest .feature') ||
+      document.getElementById('latest');
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+
+    history.replaceState(null, '', '#latest');
+  });
+});
