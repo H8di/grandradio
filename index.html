@@ -7,11 +7,11 @@
   <meta name="description" content="گرندرادیو؛ خانه‌ی صدا، روایت، شعر و موسیقی.">
   <title>گرندرادیو | GrandRadio</title>
   <link rel="icon" href="assets/grandradio-logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=19">
-  <link rel="stylesheet" href="v19.css?v=19">
+  <link rel="stylesheet" href="style.css?v=20">
 </head>
 <body>
   <div class="grain" aria-hidden="true"></div>
@@ -21,9 +21,7 @@
       <img src="assets/grandradio-logo.png" alt="لوگوی گرندرادیو">
       <span>GRANDRADIO</span>
     </a>
-
     <button class="menu-btn" aria-label="منو" aria-expanded="false"><i></i><i></i><i></i></button>
-
     <nav class="nav">
       <a href="#latest">آخرین روایت</a>
       <a href="#archive">آرشیو</a>
@@ -43,7 +41,6 @@
           <a class="btn" href="#archive">ورود به آرشیو</a>
         </div>
       </div>
-
       <div class="hero-logo">
         <div class="halo"></div>
         <img src="assets/grandradio-logo.png" alt="">
@@ -51,12 +48,9 @@
     </section>
 
     <section id="latest" class="section">
-      <div class="title-row editorial-title">
-        <div>
-          <p class="kicker">آخرین انتشار</p>
-          <h2>یک روایت، یک مکث</h2>
-        </div>
-        <p class="section-signature">GRANDRADIO · روایت‌های شنیداری</p>
+      <div class="title-row">
+        <div><p class="kicker">آخرین انتشار</p><h2>یک روایت، یک مکث</h2></div>
+        
       </div>
 
       <article class="feature">
@@ -83,12 +77,9 @@
     </section>
 
     <section id="archive" class="section">
-      <div class="title-row editorial-title archive-title">
-        <div>
-          <p class="kicker">آرشیو</p>
-          <h2>آنچه شنیده‌ایم</h2>
-        </div>
-        <p class="section-signature">ARCHIVE · آرشیو صداها</p>
+      <div class="title-row">
+        <div><p class="kicker">آرشیو گرندرادیو</p><h2>روایت‌ها</h2></div>
+        
       </div>
 
       <div id="feedFilters" class="feed-filters" aria-label="دسته‌بندی آثار"></div>
@@ -97,7 +88,9 @@
 
       <div class="archive-more">
         <p id="archiveCount" class="archive-count"></p>
-        <button id="loadMoreBtn" class="archive-more-btn" type="button" hidden>نمایش آثار بیشتر</button>
+        <button id="loadMoreBtn" class="archive-more-btn" type="button" hidden>
+          نمایش آثار بیشتر
+        </button>
       </div>
     </section>
 
@@ -113,7 +106,6 @@
     <section id="listen" class="section listen">
       <p class="kicker">همراه ما باشید</p>
       <h2>گرندرادیو را هرجا که هستید بشنوید.</h2>
-
       <div class="platforms">
         <a href="https://shenoto.com/channel/podcast/GrandRadio" target="_blank" rel="noopener noreferrer">شنوتو</a>
         <a href="https://t.me/grandradio_official" target="_blank" rel="noopener noreferrer">تلگرام</a>
@@ -123,14 +115,11 @@
   </main>
 
   <footer>
-    <div class="foot-brand">
-      <img src="assets/grandradio-logo.png" alt="">
-      <span>GRANDRADIO</span>
-    </div>
+    <div class="foot-brand"><img src="assets/grandradio-logo.png" alt=""><span>GRANDRADIO</span></div>
     <p>© <span id="year"></span> GrandRadio</p>
   </footer>
 
-  <script src="feeds.js?v=19"></script>
-  <script src="script.js?v=19"></script>
+  <script src="feeds.js?v=20"></script>
+  <script src="script.js?v=20"></script>
 </body>
 </html>
