@@ -71,7 +71,7 @@ async function loadGeneratedArchive(){
       feedLabel:item.feedLabel||feed.label,
       enclosure:{link:item.audio||item.enclosure?.link||''}
     }))
-  );
+  ).sort((a,b)=>dateValue(b)-dateValue(a));
 }
 
 /* ---------- Circular gramophone motion ---------- */

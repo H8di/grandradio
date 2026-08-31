@@ -4,6 +4,12 @@
       "id": "shabaneh",
       "label": "شبانه‌ها",
       "url": "https://shenoto.net/service/api/feed/GrandRadio"
+    },
+    {
+      "id": "bagh-roshanaei",
+      "label": "باغ‌های روشنایی",
+      "type": "shenoto_audio_book",
+      "url": "https://shenoto.com/service/api/mss/audio_book/infinite/play/77679?slug=LesJardinsDeLumi&agent=shenoto-web"
     }
   ]
 }
