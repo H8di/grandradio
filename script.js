@@ -129,12 +129,18 @@ function renderArchive(){
       <h3>${esc(item.title||'بدون عنوان')}</h3>
       <span>${esc(desc || formatDate(item))}</span>
       <div class="episode-meta">${esc(formatDate(item))}</div>
-      ${audioUrl?`<button class="episode-play" data-audio="${esc(audioUrl)}" data-title="${esc(item.title||'')}">▶ شنیدن</button>`:''}
+      ${audioUrl?`<button class="episode-play" data-item-index="${i}">▶ شنیدن</button>`:''}
     </article>`;
   }).join('');
 
   archiveEl.querySelectorAll('.episode-play').forEach(btn=>btn.addEventListener('click',()=>{
-    setPlayer(btn.dataset.audio,btn.dataset.title);
+    const selectedItem=visibleItems[Number(btn.dataset.itemIndex)];
+    if(!selectedItem) return;
+
+    // Update the complete player state: category, title, caption/description,
+    // date/meta and audio source — not just the MP3 and title.
+    setLatest(selectedItem);
+
     document.getElementById('latest')?.scrollIntoView({behavior:'smooth'});
     audio.play().catch(err=>console.warn('Audio play failed:',err));
   }));
