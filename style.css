@@ -273,3 +273,76 @@ footer{max-width:var(--max);margin:auto;padding:38px 32px 60px;display:flex;alig
     height:360px;
   }
 }
+
+
+/* =========================================================
+   FINAL ARCHIVE CARD FIX
+   - all cards stay equal height
+   - title: max 2 lines
+   - caption: max 3 lines
+   - date + play button always remain visible
+   ========================================================= */
+
+.card.feed-card{
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+  height:auto;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+
+.card.feed-card .card-category{
+  flex:0 0 auto;
+}
+
+.card.feed-card hr{
+  flex:0 0 auto;
+}
+
+.card.feed-card h3{
+  flex:0 0 auto;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.55;
+  min-height:calc(2 * 1.55em);
+  max-height:calc(2 * 1.55em);
+  margin-top:18px;
+  margin-bottom:10px;
+}
+
+.card.feed-card > span{
+  flex:0 0 auto;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:3;
+  line-clamp:3;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.8;
+  min-height:calc(3 * 1.8em);
+  max-height:calc(3 * 1.8em);
+}
+
+.card.feed-card .episode-meta{
+  flex:0 0 auto;
+  margin-top:12px;
+}
+
+.card.feed-card .episode-play{
+  flex:0 0 auto;
+  margin-top:auto;
+  align-self:flex-start;
+  padding-top:16px;
+}
+
+@media(max-width:850px){
+  .card.feed-card{
+    aspect-ratio:auto;
+    height:360px;
+  }
+}
