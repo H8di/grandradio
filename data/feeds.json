@@ -1,11 +1,20 @@
 {
-  "generatedAt": "2026-08-31T13:16:33.065144+00:00",
+  "generatedAt": "2026-08-31T19:35:29.971919+00:00",
   "feeds": [
     {
       "id": "shabaneh",
       "label": "شبانه‌ها",
       "url": "https://shenoto.net/service/api/feed/GrandRadio",
       "items": [
+        {
+          "title": "شبانه چهل و یکم",
+          "description": "<p>#شبانه چهل و یکم</p>",
+          "pubDate": "Mon, 31 Aug 2026 10:08:28 +0330",
+          "link": "https://shenoto.com/album/podcast/1878862/شبانه چهل و یکم",
+          "audio": "https://shenoto.com/service/api/play/podcast/fee00401-a56b-11f1-afe3-fe131d34812e.mp3",
+          "feedId": "shabaneh",
+          "feedLabel": "شبانه‌ها"
+        },
         {
           "title": "شبانه چهلم",
           "description": "<p>#شبانه چهلم</p><p><br></p><p>با \"سلام\" 🙋🖐</p><p><br></p><p>میزبان کلامتی از #حسین_وحدانی و #الهه_سادات_موسوی هم هستیم.</p><p><br></p><p>هفته ی گذشته با شهریار بهروز صحبت کردیم.</p><p><br></p><p><br></p><p>| دعوتید به شنیدن | 📻</p>",
