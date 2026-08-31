@@ -50,9 +50,49 @@ def parse_feed(cfg):
         "items": items,
     }
 
+def parse_audio_book(cfg):
+    raw = fetch(cfg["url"])
+    payload = json.loads(raw.decode("utf-8"))
+    rows = payload.get("data", [])
+    if isinstance(rows, dict):
+        rows = rows.get("data") or rows.get("items") or [rows]
+
+    items = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        audio = row.get("file_url") or row.get("audio") or ""
+        title = row.get("title") or row.get("media_title") or row.get("sub_title") or "بدون عنوان"
+        description = row.get("content") or row.get("description") or row.get("sub_title") or ""
+        pub_date = row.get("created_at") or row.get("jalalian_created_at") or ""
+        link = row.get("album_link") or row.get("link") or "https://shenoto.com/album/audio_book/77679"
+
+        items.append({
+            "title": title,
+            "description": description,
+            "pubDate": pub_date,
+            "link": link,
+            "audio": audio,
+            "duration": row.get("duration_detail") or row.get("duration") or "",
+            "feedId": cfg["id"],
+            "feedLabel": cfg["label"],
+        })
+
+    return {
+        "id": cfg["id"],
+        "label": cfg["label"],
+        "url": cfg["url"],
+        "items": items,
+    }
+
+def parse_source(cfg):
+    if cfg.get("type") == "shenoto_audio_book":
+        return parse_audio_book(cfg)
+    return parse_feed(cfg)
+
 def main():
     config = json.loads(CONFIG.read_text(encoding="utf-8"))
-    feeds = [parse_feed(feed) for feed in config["feeds"]]
+    feeds = [parse_source(feed) for feed in config["feeds"]]
 
     payload = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
