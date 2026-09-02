@@ -137,7 +137,7 @@ function renderArchive(){
       <h3>${esc(item.title||'بدون عنوان')}</h3>
       <span>${esc(desc || formatDate(item))}</span>
       <div class="episode-meta">${esc(formatDate(item))}</div>
-      ${audioUrl?`<button class="episode-play" data-item-index="${i}">▶ شنیدن</button>`:''}
+      ${audioUrl?`<button class="episode-play" data-item-index="${i}">▶︎ شنیدن</button>`:''}
     </article>`;
   }).join('');
 
@@ -149,8 +149,14 @@ function renderArchive(){
     // date/meta and audio source — not just the MP3 and title.
     setLatest(selectedItem);
 
+    // Keep play() inside the user's click gesture.
+    // This is important on iPhone/iPad (Chrome also uses WebKit on iOS).
+    const playPromise = audio.play();
+    if(playPromise?.catch){
+      playPromise.catch(err=>console.warn('Audio play failed:',err));
+    }
+
     document.getElementById('latest')?.scrollIntoView({behavior:'smooth'});
-    audio.play().catch(err=>console.warn('Audio play failed:',err));
   }));
 
   const shown=Math.min(visibleArchiveCount,items.length);
@@ -208,24 +214,31 @@ function setLatest(item){
 function setPlayer(url,title=''){
   if(!audio || !url) return;
 
-  if(audio.src!==url){
-    audio.src=url;
-    audio.load();
+  const currentSrc=audio.getAttribute('src')||'';
+  if(currentSrc!==url){
+    audio.pause();
+    audio.setAttribute('src',url);
+    // Do NOT call audio.load() here. On iOS it can break the user-gesture
+    // chain before the immediate play() triggered by an archive tap.
   }
 
   if(title) document.getElementById('latestTitle').textContent=title;
 
-  playBtn.textContent='▶';
+  playBtn.textContent='▶︎';
   progress.style.width='0%';
   timeEl.textContent='00:00';
   stopVisualizer();
 }
 
 playBtn?.addEventListener('click',()=>{
-  if(!audio?.src) return;
+  if(!audio?.getAttribute('src')) return;
 
   if(audio.paused){
-    audio.play().catch(err=>console.warn('Audio play failed:',err));
+    // Call play() directly from the tap/click event so iOS accepts it.
+    const playPromise=audio.play();
+    if(playPromise?.catch){
+      playPromise.catch(err=>console.warn('Audio play failed:',err));
+    }
   }else{
     audio.pause();
   }
@@ -237,12 +250,12 @@ audio?.addEventListener('play',()=>{
 });
 
 audio?.addEventListener('pause',()=>{
-  playBtn.textContent='▶';
+  playBtn.textContent='▶︎';
   stopVisualizer();
 });
 
 audio?.addEventListener('ended',()=>{
-  playBtn.textContent='▶';
+  playBtn.textContent='▶︎';
   stopVisualizer();
 });
 
