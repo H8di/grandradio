@@ -62,6 +62,12 @@ def parse_audio_book(cfg):
         if not isinstance(row, dict):
             continue
         audio = row.get("file_url") or row.get("audio") or ""
+
+        # Shenoto may inject advertisement rows into the audio-book API response.
+        # Never publish those rows as GrandRadio episodes.
+        if "/api/ads/play/" in audio:
+            continue
+
         title = row.get("title") or row.get("media_title") or row.get("sub_title") or "بدون عنوان"
         description = row.get("content") or row.get("description") or row.get("sub_title") or ""
         pub_date = row.get("created_at") or row.get("jalalian_created_at") or ""
