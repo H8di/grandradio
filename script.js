@@ -212,9 +212,8 @@ function setPlayer(url,title='',autoplay=false){
 
   if(currentSrc!==url){
     audio.pause();
-    audio.setAttribute('src',url);
-    // Explicit load is reliable on iOS when the final media URL is a direct MP3/CDN URL.
-    audio.load();
+    audio.removeAttribute('src');
+    audio.src=url;
   }
 
   if(title) document.getElementById('latestTitle').textContent=title;
@@ -238,9 +237,6 @@ playBtn?.addEventListener('click',()=>{
   if(!audio?.getAttribute('src')) return;
 
   if(audio.paused){
-    if(audio.readyState===0){
-      audio.load();
-    }
     const playPromise=audio.play();
     if(playPromise?.catch){
       playPromise.catch(err=>console.warn('Audio play failed:',err));
@@ -263,6 +259,23 @@ audio?.addEventListener('pause',()=>{
 audio?.addEventListener('ended',()=>{
   playBtn.textContent='▶︎';
   stopVisualizer();
+});
+
+
+audio?.addEventListener('loadedmetadata',()=>{
+  console.info('GrandRadio audio metadata loaded', audio.currentSrc, audio.duration);
+});
+
+audio?.addEventListener('canplay',()=>{
+  console.info('GrandRadio audio canplay', audio.currentSrc);
+});
+
+audio?.addEventListener('error',()=>{
+  console.error('GrandRadio audio error', {
+    code: audio.error?.code,
+    message: audio.error?.message,
+    src: audio.currentSrc || audio.getAttribute('src')
+  });
 });
 
 audio?.addEventListener('timeupdate',()=>{
