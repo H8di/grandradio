@@ -24,37 +24,27 @@ def fetch(url):
     with urllib.request.urlopen(req, timeout=30) as response:
         return response.read()
 
-
 def resolve_media_url(url):
-    """
-    Resolve Shenoto /service/api/play/... URLs to the final CDN/media URL.
-    iOS WebKit (including Chrome on iPhone) can be unreliable with the
-    intermediate Shenoto play endpoint, while the final media URL supports
-    normal HTMLAudio streaming/range requests.
+    """Resolve Shenoto play endpoints to the final media/CDN URL.
 
-    We request only the first byte so this does not download the whole audio.
+    A 1-byte Range request avoids downloading the full audio file.
+    If resolution fails, keep the original URL as a safe fallback.
     """
     if not url:
         return ""
-
-    if "shenoto.com/service/api/play/" not in url:
-        return url
-
     try:
         req = urllib.request.Request(
             url,
             headers={
                 "User-Agent": "Mozilla/5.0 GrandRadio/1.0",
+                "Accept": "audio/mpeg,audio/*;q=0.9,*/*;q=0.1",
                 "Range": "bytes=0-0",
-                "Accept": "audio/*,*/*;q=0.8",
             },
         )
         with urllib.request.urlopen(req, timeout=30) as response:
-            final_url = response.geturl()
-            response.read(1)
-            return final_url or url
+            return response.geturl() or url
     except Exception as exc:
-        print(f"Warning: could not resolve media URL {url}: {exc}")
+        print(f"Could not resolve media URL: {url} ({exc})")
         return url
 
 def parse_feed(cfg):
@@ -98,9 +88,7 @@ def parse_audio_book(cfg):
         audio = str(row.get("file_url") or row.get("audio") or "").strip()
 
         # Only keep REAL audiobook media returned by Shenoto.
-        # Shenoto's "infinite/play" endpoint may inject advertisement rows
-        # between real chapters. Ads use /api/ads/play/... and must never
-        # become GrandRadio archive items.
+        # The infinite/play API may inject ads or recommendation rows.
         is_real_audio = (
             "/service/api/play/audio_book/" in audio
             or "cdn-arch.shenoto.com/shenoto-media/" in audio
@@ -108,6 +96,8 @@ def parse_audio_book(cfg):
         if not is_real_audio:
             continue
 
+        # Convert the Shenoto playback endpoint to the final direct CDN/media URL.
+        # This is more reliable in iPhone/iPad WebKit than the redirecting endpoint.
         audio = resolve_media_url(audio)
 
         title = row.get("title") or row.get("media_title") or row.get("sub_title") or "بدون عنوان"
