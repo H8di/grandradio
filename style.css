@@ -677,3 +677,45 @@ footer{max-width:var(--max);margin:auto;padding:38px 32px 60px;display:flex;alig
     font-size:10px !important;
   }
 }
+
+
+/* =========================================================
+   MOBILE ABOUT — v37
+   Reduce the empty vertical gap between the logo and text.
+   Phone only; tablet/desktop unchanged.
+   ========================================================= */
+@media (max-width:560px){
+
+  #about{
+    scroll-margin-top:76px;
+    gap:14px !important;
+    padding-top:24px !important;
+    padding-bottom:28px !important;
+  }
+
+  #about .about-logo{
+    margin:0 auto 2px !important;
+    padding:0 !important;
+    min-height:0 !important;
+    height:auto !important;
+  }
+
+  #about .about-logo img{
+    display:block !important;
+    margin:0 auto !important;
+  }
+
+  #about > div:last-child{
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  #about .kicker{
+    margin-top:0 !important;
+    margin-bottom:6px !important;
+  }
+
+  #about h2{
+    margin-top:0 !important;
+  }
+}
