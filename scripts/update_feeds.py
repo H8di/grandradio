@@ -24,6 +24,39 @@ def fetch(url):
     with urllib.request.urlopen(req, timeout=30) as response:
         return response.read()
 
+
+def resolve_media_url(url):
+    """
+    Resolve Shenoto /service/api/play/... URLs to the final CDN/media URL.
+    iOS WebKit (including Chrome on iPhone) can be unreliable with the
+    intermediate Shenoto play endpoint, while the final media URL supports
+    normal HTMLAudio streaming/range requests.
+
+    We request only the first byte so this does not download the whole audio.
+    """
+    if not url:
+        return ""
+
+    if "shenoto.com/service/api/play/" not in url:
+        return url
+
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={
+                "User-Agent": "Mozilla/5.0 GrandRadio/1.0",
+                "Range": "bytes=0-0",
+                "Accept": "audio/*,*/*;q=0.8",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=30) as response:
+            final_url = response.geturl()
+            response.read(1)
+            return final_url or url
+    except Exception as exc:
+        print(f"Warning: could not resolve media URL {url}: {exc}")
+        return url
+
 def parse_feed(cfg):
     raw = fetch(cfg["url"])
     root = ET.fromstring(raw)
@@ -32,6 +65,7 @@ def parse_feed(cfg):
     for item in root.findall(".//item"):
         enclosure = item.find("enclosure")
         audio = enclosure.attrib.get("url", "") if enclosure is not None else ""
+        audio = resolve_media_url(audio)
 
         items.append({
             "title": text(item, "title"),
@@ -73,6 +107,8 @@ def parse_audio_book(cfg):
         )
         if not is_real_audio:
             continue
+
+        audio = resolve_media_url(audio)
 
         title = row.get("title") or row.get("media_title") or row.get("sub_title") or "بدون عنوان"
         description = row.get("content") or row.get("description") or row.get("sub_title") or ""
