@@ -20,7 +20,7 @@ const visualDisc=document.getElementById('audioVisual');
 
 let allEpisodes=[];
 let activeFilter='all';
-const ARCHIVE_PAGE_SIZE=9;
+const ARCHIVE_PAGE_SIZE=3;
 let visibleArchiveCount=ARCHIVE_PAGE_SIZE;
 
 function cleanText(html=''){
@@ -164,10 +164,10 @@ function renderArchive(){
   loadMoreBtn.hidden=false;
 
   if(shown>=items.length){
-    loadMoreBtn.textContent='جمع کردن آرشیو';
+    loadMoreBtn.innerHTML='<span class="archive-toggle-icon" aria-hidden="true">⌃</span><span>جمع کردن آرشیو</span>';
     loadMoreBtn.dataset.mode='collapse';
   }else{
-    loadMoreBtn.textContent='نمایش آثار بیشتر';
+    loadMoreBtn.innerHTML='<span class="archive-toggle-icon" aria-hidden="true">⌄</span><span>نمایش آثار بیشتر</span>';
     loadMoreBtn.dataset.mode='more';
   }
 }
@@ -262,21 +262,6 @@ audio?.addEventListener('ended',()=>{
 });
 
 
-audio?.addEventListener('loadedmetadata',()=>{
-  console.info('GrandRadio audio metadata loaded', audio.currentSrc, audio.duration);
-});
-
-audio?.addEventListener('canplay',()=>{
-  console.info('GrandRadio audio canplay', audio.currentSrc);
-});
-
-audio?.addEventListener('error',()=>{
-  console.error('GrandRadio audio error', {
-    code: audio.error?.code,
-    message: audio.error?.message,
-    src: audio.currentSrc || audio.getAttribute('src')
-  });
-});
 
 audio?.addEventListener('timeupdate',()=>{
   if(!audio.duration) return;
