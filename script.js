@@ -341,9 +341,11 @@ document.querySelectorAll('a[href="#latest"]').forEach(link => {
       document.querySelector('#latest .feature') ||
       document.getElementById('latest');
 
+    const isPhone=window.matchMedia('(max-width:560px)').matches;
+
     target.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
+      behavior:'smooth',
+      block:isPhone?'start':'center'
     });
 
     history.replaceState(null, '', '#latest');

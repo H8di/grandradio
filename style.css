@@ -611,3 +611,69 @@ footer{max-width:var(--max);margin:auto;padding:38px 32px 60px;display:flex;alig
     padding:10px 18px;
   }
 }
+
+
+/* =========================================================
+   MOBILE LATEST STORY — v36
+   Keep the full disc visible and protect space for the player.
+   Phone only; tablet/desktop unchanged.
+   ========================================================= */
+@media (max-width:560px){
+
+  #latest .feature{
+    scroll-margin-top:76px;
+    gap:18px !important;
+    padding:18px 18px 20px !important;
+    align-items:start !important;
+  }
+
+  #latest .disc{
+    width:clamp(220px,64vw,280px) !important;
+    max-width:none !important;
+    min-width:0 !important;
+    margin:0 auto 2px !important;
+    flex:none !important;
+  }
+
+  #latest .feature-copy{
+    width:100% !important;
+    min-width:0 !important;
+  }
+
+  #latest .feature-copy .kicker{
+    margin-bottom:7px !important;
+  }
+
+  #latest .feature-copy h3{
+    font-size:clamp(29px,8vw,36px) !important;
+    line-height:1.55 !important;
+    margin:0 0 8px !important;
+  }
+
+  #latest .quote{
+    display:-webkit-box !important;
+    -webkit-box-orient:vertical !important;
+    -webkit-line-clamp:4 !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+    max-height:calc(1.9em * 4) !important;
+    margin-bottom:0 !important;
+  }
+
+  #latest .player{
+    margin-top:16px !important;
+    grid-template-columns:54px 1fr 46px !important;
+    gap:12px !important;
+  }
+
+  #latest .player button{
+    width:54px !important;
+    height:54px !important;
+    font-size:17px !important;
+  }
+
+  #latest .feature small{
+    margin-top:7px !important;
+    font-size:10px !important;
+  }
+}
