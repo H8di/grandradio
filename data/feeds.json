@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T10:14:41.811861+00:00",
+  "generatedAt": "2026-09-02T15:40:35.562740+00:00",
   "feeds": [
     {
       "id": "shabaneh",
@@ -393,6 +393,16 @@
           "feedLabel": "باغ‌های روشنایی"
         },
         {
+          "title": "امروز چه حسی داری؟",
+          "description": "null",
+          "pubDate": "2026-08-05 07:24:23.000000",
+          "link": "https://shenoto.com/album/audio_book/77679",
+          "audio": "https://shenoto.com/api/ads/play/01e238b7-a581-4d9f-85f0-6ae6d027b59b.mp3?channel_id=9173&album_id=77679&categories=28-33-42---&entity_type=audio_book&album_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%DB%8C%DA%A9%D9%85&channel_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C&media_id=229607&media_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%DB%8C%DA%A9%D9%85&category_title=%D8%AF%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%20%D9%88%20%D8%B1%D9%85%D8%A7%D9%86%20%2C%20%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C%20%D9%88%20%D9%87%D9%86%D8%B1%20%2C%20%D8%B4%D8%B9%D8%B1%D8%8C%20%D8%A7%D8%AF%D8%A8%DB%8C%D8%A7%D8%AA%20%D9%88%20%D8%B2%D9%86%D8%AF%DA%AF%DB%8C%D9%86%D8%A7%D9%85%D9%87&key=63efa027428bd71c97c665b9bf25858f",
+          "duration": "01:00",
+          "feedId": "bagh-roshanaei",
+          "feedLabel": "باغ‌های روشنایی"
+        },
+        {
           "title": "باغ های روشنایی - قسمت یکم",
           "description": "<p><strong>باغ‌های روشنایی</strong>، رمانی تاریخی از امین معلوف، روایت زندگی مانی؛ نقاش، پزشک و اندیشمند ایرانی سده سوم میلادی است.</p><p>معلوف در این رمان، از دل تاریخ ایران ساسانی، زندگی مردی را روایت می‌کند که رؤیای آشتی میان باورها و جهانی بر پایه مدارا و روشنایی را در سر داشت؛ اندیشه‌ای که او را در برابر قدرت‌های سیاسی و مذهبی زمان خود قرار داد.</p><p>این کتاب با ترجمه <strong>میترا معصومی</strong>، در قالب کتاب صوتی و به صورت قسمت‌به‌قسمت در <strong>گرندرادیو</strong> منتشر می‌شود.</p>",
           "pubDate": "2026-08-31T15:47:42.000000Z",
@@ -403,11 +413,11 @@
           "feedLabel": "باغ‌های روشنایی"
         },
         {
-          "title": "امروز چه حسی داری؟",
-          "description": "null",
-          "pubDate": "2026-08-05 07:24:23.000000",
+          "title": "پریل سنستیو، سازگار با پوست دست",
+          "description": "",
+          "pubDate": "2026-09-01 11:24:33.000000",
           "link": "https://shenoto.com/album/audio_book/77679",
-          "audio": "https://shenoto.com/api/ads/play/01e238b7-a581-4d9f-85f0-6ae6d027b59b.mp3?channel_id=9173&album_id=77679&categories=28-33-42---&entity_type=audio_book&album_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%D8%AF%D9%88%D9%85&channel_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C&media_id=229608&media_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%D8%AF%D9%88%D9%85&category_title=%D8%AF%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%20%D9%88%20%D8%B1%D9%85%D8%A7%D9%86%20%2C%20%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C%20%D9%88%20%D9%87%D9%86%D8%B1%20%2C%20%D8%B4%D8%B9%D8%B1%D8%8C%20%D8%A7%D8%AF%D8%A8%DB%8C%D8%A7%D8%AA%20%D9%88%20%D8%B2%D9%86%D8%AF%DA%AF%DB%8C%D9%86%D8%A7%D9%85%D9%87&key=c3143ea7820382db274e4842a586c582",
+          "audio": "https://shenoto.com/api/ads/play/d216f645-1ba7-408f-8b80-ed0b78322191.mp3?channel_id=9173&album_id=77679&categories=28-33-42---&entity_type=audio_book&album_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%D8%AF%D9%88%D9%85&channel_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C&media_id=229608&media_title=%D8%A8%D8%A7%D8%BA%20%D9%87%D8%A7%DB%8C%20%D8%B1%D9%88%D8%B4%D9%86%D8%A7%DB%8C%DB%8C%20-%20%D9%82%D8%B3%D9%85%D8%AA%20%D8%AF%D9%88%D9%85&category_title=%D8%AF%D8%A7%D8%B3%D8%AA%D8%A7%D9%86%20%D9%88%20%D8%B1%D9%85%D8%A7%D9%86%20%2C%20%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C%20%D9%88%20%D9%87%D9%86%D8%B1%20%2C%20%D8%B4%D8%B9%D8%B1%D8%8C%20%D8%A7%D8%AF%D8%A8%DB%8C%D8%A7%D8%AA%20%D9%88%20%D8%B2%D9%86%D8%AF%DA%AF%DB%8C%D9%86%D8%A7%D9%85%D9%87&key=b8c3e90e9d64b24adc885f3f8d6b7f4d",
           "duration": "01:00",
           "feedId": "bagh-roshanaei",
           "feedLabel": "باغ‌های روشنایی"
