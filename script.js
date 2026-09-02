@@ -137,7 +137,7 @@ function renderArchive(){
       <h3>${esc(item.title||'بدون عنوان')}</h3>
       <span>${esc(desc || formatDate(item))}</span>
       <div class="episode-meta">${esc(formatDate(item))}</div>
-      ${audioUrl?`<button class="episode-play" data-item-index="${i}"><span class="play-triangle" aria-hidden="true"></span> شنیدن</button>`:''}
+      ${audioUrl?`<button class="episode-play" data-item-index="${i}">▶︎ شنیدن</button>`:''}
     </article>`;
   }).join('');
 
@@ -149,7 +149,9 @@ function renderArchive(){
     // date/meta and audio source — not just the MP3 and title.
     setLatest(selectedItem);
 
-    const playPromise=audio.play();
+    // Keep play() inside the user's tap/click gesture.
+    // This is required for reliable playback on iPhone/iPad WebKit.
+    const playPromise = audio.play();
     if(playPromise?.catch){
       playPromise.catch(err=>console.warn('Audio play failed:',err));
     }
@@ -212,40 +214,46 @@ function setLatest(item){
 function setPlayer(url,title=''){
   if(!audio || !url) return;
 
-  if(audio.src!==url){
-    audio.src=url;
+  const currentSrc=audio.getAttribute('src')||'';
+  if(currentSrc!==url){
+    audio.pause();
+    audio.setAttribute('src',url);
+    // Do not call audio.load() here; on iOS it can break the user-gesture chain.
   }
 
   if(title) document.getElementById('latestTitle').textContent=title;
 
-  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
+  playBtn.textContent='▶︎';
   progress.style.width='0%';
   timeEl.textContent='00:00';
   stopVisualizer();
 }
 
 playBtn?.addEventListener('click',()=>{
-  if(!audio?.src) return;
+  if(!audio?.getAttribute('src')) return;
 
   if(audio.paused){
-    audio.play().catch(err=>console.warn('Audio play failed:',err));
+    const playPromise=audio.play();
+    if(playPromise?.catch){
+      playPromise.catch(err=>console.warn('Audio play failed:',err));
+    }
   }else{
     audio.pause();
   }
 });
 
 audio?.addEventListener('play',()=>{
-  playBtn.classList.remove('show-play-triangle'); playBtn.textContent='Ⅱ';
+  playBtn.textContent='Ⅱ';
   startVisualizer();
 });
 
 audio?.addEventListener('pause',()=>{
-  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
+  playBtn.textContent='▶︎';
   stopVisualizer();
 });
 
 audio?.addEventListener('ended',()=>{
-  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
+  playBtn.textContent='▶︎';
   stopVisualizer();
 });
 
