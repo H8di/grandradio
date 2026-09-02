@@ -137,7 +137,7 @@ function renderArchive(){
       <h3>${esc(item.title||'بدون عنوان')}</h3>
       <span>${esc(desc || formatDate(item))}</span>
       <div class="episode-meta">${esc(formatDate(item))}</div>
-      ${audioUrl?`<button class="episode-play" data-item-index="${i}">▶︎ شنیدن</button>`:''}
+      ${audioUrl?`<button class="episode-play" data-item-index="${i}"><span class="play-triangle" aria-hidden="true"></span> شنیدن</button>`:''}
     </article>`;
   }).join('');
 
@@ -149,9 +149,7 @@ function renderArchive(){
     // date/meta and audio source — not just the MP3 and title.
     setLatest(selectedItem);
 
-    // Keep play() inside the user's click gesture.
-    // This is important on iPhone/iPad (Chrome also uses WebKit on iOS).
-    const playPromise = audio.play();
+    const playPromise=audio.play();
     if(playPromise?.catch){
       playPromise.catch(err=>console.warn('Audio play failed:',err));
     }
@@ -214,48 +212,40 @@ function setLatest(item){
 function setPlayer(url,title=''){
   if(!audio || !url) return;
 
-  const currentSrc=audio.getAttribute('src')||'';
-  if(currentSrc!==url){
-    audio.pause();
-    audio.setAttribute('src',url);
-    // Do NOT call audio.load() here. On iOS it can break the user-gesture
-    // chain before the immediate play() triggered by an archive tap.
+  if(audio.src!==url){
+    audio.src=url;
   }
 
   if(title) document.getElementById('latestTitle').textContent=title;
 
-  playBtn.textContent='▶︎';
+  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
   progress.style.width='0%';
   timeEl.textContent='00:00';
   stopVisualizer();
 }
 
 playBtn?.addEventListener('click',()=>{
-  if(!audio?.getAttribute('src')) return;
+  if(!audio?.src) return;
 
   if(audio.paused){
-    // Call play() directly from the tap/click event so iOS accepts it.
-    const playPromise=audio.play();
-    if(playPromise?.catch){
-      playPromise.catch(err=>console.warn('Audio play failed:',err));
-    }
+    audio.play().catch(err=>console.warn('Audio play failed:',err));
   }else{
     audio.pause();
   }
 });
 
 audio?.addEventListener('play',()=>{
-  playBtn.textContent='Ⅱ';
+  playBtn.classList.remove('show-play-triangle'); playBtn.textContent='Ⅱ';
   startVisualizer();
 });
 
 audio?.addEventListener('pause',()=>{
-  playBtn.textContent='▶︎';
+  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
   stopVisualizer();
 });
 
 audio?.addEventListener('ended',()=>{
-  playBtn.textContent='▶︎';
+  playBtn.textContent=''; playBtn.classList.add('show-play-triangle');
   stopVisualizer();
 });
 
