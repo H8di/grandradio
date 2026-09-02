@@ -147,14 +147,8 @@ function renderArchive(){
 
     // Update the complete player state: category, title, caption/description,
     // date/meta and audio source — not just the MP3 and title.
-    setLatest(selectedItem);
-
-    // Keep play() inside the user's tap/click gesture.
-    // This is required for reliable playback on iPhone/iPad WebKit.
-    const playPromise = audio.play();
-    if(playPromise?.catch){
-      playPromise.catch(err=>console.warn('Audio play failed:',err));
-    }
+    // Source selection + load + play all happen synchronously inside this tap.
+    setLatest(selectedItem,true);
 
     document.getElementById('latest')?.scrollIntoView({behavior:'smooth'});
   }));
@@ -195,7 +189,7 @@ loadMoreBtn?.addEventListener('click',()=>{
 
 /* ---------- Main player ---------- */
 
-function setLatest(item){
+function setLatest(item,autoplay=false){
   if(!item) return;
 
   document.getElementById('latestCategory').textContent=item.feedLabel;
@@ -208,17 +202,19 @@ function setLatest(item){
   document.getElementById('latestMeta').textContent=
     [item.feedLabel,formatDate(item)].filter(Boolean).join(' • ');
 
-  setPlayer(getAudio(item),item.title||'');
+  setPlayer(getAudio(item),item.title||'',autoplay);
 }
 
-function setPlayer(url,title=''){
+function setPlayer(url,title='',autoplay=false){
   if(!audio || !url) return;
 
   const currentSrc=audio.getAttribute('src')||'';
+
   if(currentSrc!==url){
     audio.pause();
     audio.setAttribute('src',url);
-    // Do not call audio.load() here; on iOS it can break the user-gesture chain.
+    // Explicit load is reliable on iOS when the final media URL is a direct MP3/CDN URL.
+    audio.load();
   }
 
   if(title) document.getElementById('latestTitle').textContent=title;
@@ -227,12 +223,24 @@ function setPlayer(url,title=''){
   progress.style.width='0%';
   timeEl.textContent='00:00';
   stopVisualizer();
+
+  if(autoplay){
+    const playPromise=audio.play();
+    if(playPromise?.catch){
+      playPromise.catch(err=>{
+        console.warn('Audio autoplay from archive tap failed:',err);
+      });
+    }
+  }
 }
 
 playBtn?.addEventListener('click',()=>{
   if(!audio?.getAttribute('src')) return;
 
   if(audio.paused){
+    if(audio.readyState===0){
+      audio.load();
+    }
     const playPromise=audio.play();
     if(playPromise?.catch){
       playPromise.catch(err=>console.warn('Audio play failed:',err));
