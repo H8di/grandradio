@@ -5,6 +5,22 @@ menuBtn?.addEventListener('click',()=>{
   menuBtn.setAttribute('aria-expanded',String(open));
 });
 nav?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// Close the mobile/tablet menu when the user interacts anywhere outside it,
+// or starts scrolling. The menu button itself keeps its normal toggle behavior.
+function closeMobileMenu(){
+  if(!nav?.classList.contains('open')) return;
+  nav.classList.remove('open');
+  menuBtn?.setAttribute('aria-expanded','false');
+}
+
+document.addEventListener('pointerdown',e=>{
+  if(!nav?.classList.contains('open')) return;
+  if(nav.contains(e.target) || menuBtn?.contains(e.target)) return;
+  closeMobileMenu();
+});
+
+window.addEventListener('scroll',closeMobileMenu,{passive:true});
 document.getElementById('year').textContent=new Date().getFullYear();
 
 const archiveEl=document.getElementById('feedArchive');
