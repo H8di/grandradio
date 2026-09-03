@@ -1,11 +1,38 @@
 {
-  "generatedAt": "2026-09-03T22:04:10.390845+00:00",
+  "generatedAt": "2026-09-03T22:18:09.649071+00:00",
   "feeds": [
     {
       "id": "shabaneh",
       "label": "شبانه‌ها",
       "url": "https://shenoto.net/service/api/feed/GrandRadio",
       "items": [
+        {
+          "title": "شبانه چهل و پنجم",
+          "description": "<p>#شبانه چهل و پنجم</p><p><br></p><p>با احترام 😊</p><p><br></p><p>میزبان کلامتی از #هومن_کرمی ، #نادر_ابراهیمی و #محمد_هاشمی هم هستیم.</p><p><br></p><p>هفته ی پیش درباره ی \"سلام\" حرف زدیم.</p><p><br></p><p>بهانه ی این هفته : عروسک 👭</p>",
+          "pubDate": "Fri, 04 Sep 2026 01:09:28 +0330",
+          "link": "https://shenoto.com/album/podcast/1879321/شبانه چهل و پنجم",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/Lsvnc3AenMmC6FALWYx6NWx2Znenqc.mpeg",
+          "feedId": "shabaneh",
+          "feedLabel": "شبانه‌ها"
+        },
+        {
+          "title": "شبانه چهل و چهارم",
+          "description": "<p>#شبانه چهل و چهارم</p>",
+          "pubDate": "Fri, 04 Sep 2026 01:09:10 +0330",
+          "link": "https://shenoto.com/album/podcast/1879320/شبانه چهل و چهارم",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/MRDkQGGsiVLu63tN16CIUAzJfTpTrQ.mpeg",
+          "feedId": "shabaneh",
+          "feedLabel": "شبانه‌ها"
+        },
+        {
+          "title": "شبانه چهل و سوم",
+          "description": "<p>#شبانه چهل و سوم</p>",
+          "pubDate": "Fri, 04 Sep 2026 01:09:48 +0330",
+          "link": "https://shenoto.com/album/podcast/1879319/شبانه چهل و سوم",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/WPvIxZ5DSvGUcHWDCtcs2c9agYekpE.mpeg",
+          "feedId": "shabaneh",
+          "feedLabel": "شبانه‌ها"
+        },
         {
           "title": "شبانه چهل و دوم",
           "description": "<p>#شبانه چهل و دوم</p>",
