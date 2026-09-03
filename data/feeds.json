@@ -1,11 +1,20 @@
 {
-  "generatedAt": "2026-09-03T21:51:46.029444+00:00",
+  "generatedAt": "2026-09-03T22:04:10.390845+00:00",
   "feeds": [
     {
       "id": "shabaneh",
       "label": "شبانه‌ها",
       "url": "https://shenoto.net/service/api/feed/GrandRadio",
       "items": [
+        {
+          "title": "شبانه چهل و دوم",
+          "description": "<p>#شبانه چهل و دوم</p>",
+          "pubDate": "Fri, 04 Sep 2026 01:09:41 +0330",
+          "link": "https://shenoto.com/album/podcast/1879318/شبانه چهل و دوم",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/fs4OgYbLKrypBps8kiTICp3ARn9ONA.mpeg",
+          "feedId": "shabaneh",
+          "feedLabel": "شبانه‌ها"
+        },
         {
           "title": "شبانه چهل و یکم",
           "description": "<p>#شبانه چهل و یکم</p>",
