@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T10:06:46.059263+00:00",
+  "generatedAt": "2026-10-24T15:07:39.578880+00:00",
   "feeds": [
     {
       "id": "shabaneh",
@@ -236,7 +236,7 @@
           "description": "<p>🌙 #شبانه بیست و پنجم</p><hr><p dir=\"ltr\">Hosted on <a href=\"https://shenoto.com\" target=\"_blank\">SHENOTO</a></p>",
           "pubDate": "Tue, 11 Aug 2026 23:25:22 +0330",
           "link": "https://shenoto.com/album/podcast/1875795/شبانه بیست و پنجم",
-          "audio": "https://shenoto.com/service/api/play/podcast/969be0f2-95be-11f1-afe3-fe131d34812e.mp3",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/pn45B3XMZCu15aeGBoreW64wNn9oGT.mpeg",
           "feedId": "shabaneh",
           "feedLabel": "شبانه‌ها"
         },
@@ -326,7 +326,7 @@
           "description": "<p>🌙 #شبانه پانزدهم</p><hr><p dir=\"ltr\">Hosted on <a href=\"https://shenoto.com\" target=\"_blank\">SHENOTO</a></p>",
           "pubDate": "Mon, 10 Aug 2026 13:15:56 +0330",
           "link": "https://shenoto.com/album/podcast/1875576/شبانه پانزدهم",
-          "audio": "https://shenoto.com/service/api/play/podcast/48abbadf-94a0-11f1-afe3-fe131d34812e.mp3",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/KythFIqpunVWz0vHGuFlpRCI2pRTOf.mpeg",
           "feedId": "shabaneh",
           "feedLabel": "شبانه‌ها"
         },
@@ -452,7 +452,7 @@
           "description": "<p>📖 در این برنامه میزبان کلماتی از شهریار بهروز، سید علی صالحی و محسن بیداویزی هم هستیم.</p><p><br></p><p>با کسی که دوستش داری</p><p>شب ها </p><p>مهربان حرف بزن...</p><p><br></p><p>| اینجا گراند رادیو |</p><hr><p dir=\"ltr\">Hosted on <a href=\"https://shenoto.com\" target=\"_blank\">SHENOTO</a></p>",
           "pubDate": "Sun, 09 Aug 2026 15:37:19 +0330",
           "link": "https://shenoto.com/album/podcast/1875443/شبانه اول",
-          "audio": "https://shenoto.com/service/api/play/podcast/dee1bc06-93ea-11f1-afe3-fe131d34812e.mp3",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/YVxncVqMY7KWkbUq60o8QklOyiGenD.mp3",
           "feedId": "shabaneh",
           "feedLabel": "شبانه‌ها"
         }
@@ -648,7 +648,7 @@
           "description": "<p><strong>باغ‌های روشنایی</strong>، رمانی تاریخی از امین معلوف، روایت زندگی مانی؛ نقاش، پزشک و اندیشمند ایرانی سده سوم میلادی است.</p><p>معلوف در این رمان، از دل تاریخ ایران ساسانی، زندگی مردی را روایت می‌کند که رؤیای آشتی میان باورها و جهانی بر پایه مدارا و روشنایی را در سر داشت؛ اندیشه‌ای که او را در برابر قدرت‌های سیاسی و مذهبی زمان خود قرار داد.</p><p>این کتاب با ترجمه <strong>میترا معصومی</strong>، در قالب کتاب صوتی و در ۳۵ قسمت در <strong>گرندرادیو</strong> منتشر شده است.</p>",
           "pubDate": "2026-08-31T15:47:42.000000Z",
           "link": "https://shenoto.com/service/api/mss/audio_book/album/77679",
-          "audio": "https://shenoto.com/service/api/play/audio_book/3596c69a-a7e8-11f1-afe3-fe131d34812e.mp3",
+          "audio": "https://cdn-arch.shenoto.com/shenoto-media/hperSlZfIwjOxsU3lajhEQfEx70JiI.mpeg",
           "duration": "10:27",
           "feedId": "bagh-roshanaei",
           "feedLabel": "باغ‌های روشنایی"
